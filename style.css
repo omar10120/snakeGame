@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e2a3a, #2d3a4a);
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.score-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.difficulty-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.difficulty-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.difficulty-btn.active {
+    background: #4CAF50;
+    color: white;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+}
+
+#gameCanvas {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    margin: 1rem 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glow-button {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 2rem;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2rem;
+    box-shadow: 0 0 30px rgba(76, 175, 80, 0.5);
+}
+
+.glow-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(76, 175, 80, 0.7);
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(30, 40, 55, 0.95);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.1); /* Soft green glow */
+    animation: fadeIn 0.3s ease;
+}
+
+.game-over h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgba(255, 82, 82, 1); /* Bright red */
+    text-shadow: 0 0 15px rgba(255, 82, 82, 0.8); /* Glow effect */
+    margin-bottom: 1rem;
+}
+
+.game-over p {
+    font-size: 1.4rem;
+    color: white;
+}
+
+#finalScore {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #00ff00; /* Neon green */
+    text-shadow: 0 0 15px rgba(0, 255, 0, 0.8); /* Green glow */
+}
+
+#restartBtn {
+    margin-top: 1.5rem;
+    padding: 0.75rem 2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #2ECC71, #27AE60); /* Bright green gradient */
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
+}
+
+#restartBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(46, 204, 113, 0.7);
+}
