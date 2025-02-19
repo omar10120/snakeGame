@@ -15,12 +15,14 @@ class SnakeGame {
         this.eatSound = new Audio('sounds/eatFood.mp3');
         this.gameOverSound = new Audio('sounds/gameOver.mp3');
 
-        // Set canvas size
-        this.canvas.width = 600;
-        this.canvas.height = 400;
+        // Set initial canvas size
+        this.updateCanvasSize();
+
+        // Add resize event listener
+        window.addEventListener('resize', () => this.updateCanvasSize());
 
         // Game settings
-        this.gridSize = 20;
+        this.gridSize = Math.floor(Math.min(this.canvas.width, this.canvas.height) / 20);
         this.snake = [];
         this.food = {};
         this.direction = 'right';
@@ -36,6 +38,14 @@ class SnakeGame {
 
         // Initialize event listeners
         this.initEventListeners();
+    }
+
+    updateCanvasSize() {
+        const maxWidth = Math.min(600, window.innerWidth * 0.9);
+        const maxHeight = Math.min(400, window.innerHeight * 0.6);
+        this.canvas.width = maxWidth;
+        this.canvas.height = maxHeight;
+        this.gridSize = Math.floor(Math.min(maxWidth, maxHeight) / 20);
     }
 
     initEventListeners() {
